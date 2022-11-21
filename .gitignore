@@ -2,3 +2,4 @@
 /mvnw.cmd
 /.idea/
 /target/
+.DS_Store
