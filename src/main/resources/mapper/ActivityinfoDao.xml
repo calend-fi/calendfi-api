@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ach.calendfi.dao.ActivityinfoDao">
+
+    <resultMap type="com.ach.calendfi.entity.ActivityInfo" id="ActivityinfoMap">
+        <result property="id" column="id" jdbcType="INTEGER"/>
+        <result property="projectid" column="projectid" jdbcType="INTEGER"/>
+        <result property="actividyid" column="actividyid" jdbcType="INTEGER"/>
+        <result property="type" column="type" jdbcType="VARCHAR"/>
+        <result property="pairaddress" column="pairaddress" jdbcType="VARCHAR"/>
+        <result property="rewardtoken" column="rewardtoken" jdbcType="VARCHAR"/>
+        <result property="amount" column="amount" jdbcType="VARCHAR"/>
+        <result property="strarttime" column="strarttime" jdbcType="VARCHAR"/>
+        <result property="duration" column="duration" jdbcType="VARCHAR"/>
+        <result property="endtime" column="endtime" jdbcType="VARCHAR"/>
+        <result property="inserttime" column="inserttime" jdbcType="VARCHAR"/>
+        <result property="pairname" column="pairname" jdbcType="VARCHAR"/>
+        <result property="poolid" column="poolid" jdbcType="INTEGER"/>
+        <result property="priceOfStakedToken" column="priceOfStakedToken" jdbcType="INTEGER"/>
+        <result property="version" column="version" jdbcType="VARCHAR"/>
+        <result property="isdel" column="isdel" jdbcType="VARCHAR"/>
+        <result property="flag" column="flag" jdbcType="INTEGER"/>
+        <result property="dailyamount" column="dailyamount" jdbcType="VARCHAR"/>
+        <result property="sustainabledays" column="sustainabledays" jdbcType="VARCHAR"/>
+        <result property="apr" column="apr" jdbcType="VARCHAR"/>
+        <result property="directdivided" column="directdivided" jdbcType="VARCHAR"/>
+        <result property="indirectdivided" column="indirectdivided" jdbcType="VARCHAR"/>
+        <result property="directweight" column="directweight" jdbcType="VARCHAR"/>
+        <result property="indirectweight" column="indirectweight" jdbcType="VARCHAR"/>
+        <result property="isleaderboard" column="isleaderboard" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <!--Query specified row data-->
+    <select id="queryAllByLimit" resultMap="ActivityinfoMap">
+        select
+          id, projectid, actividyid, type, pairaddress, rewardtoken, amount, strarttime, duration, endtime, inserttime, pairname, poolid, priceOfStakedToken, version, isdel, flag, dailyamount, sustainabledays, apr, directdivided, indirectdivided, directweight, indirectweight, isleaderboard
+        from activityinfo
+        <where>
+            <if test="projectid != null">
+                and projectid = #{projectid}
+            </if>
+            <if test="actividyid != null">
+                and actividyid = #{actividyid}
+            </if>
+            <if test="type != null and type != ''">
+                and type = #{type}
+            </if>
+            <if test="pairaddress != null and pairaddress != ''">
+                and pairaddress = #{pairaddress}
+            </if>
+            <if test="rewardtoken != null and rewardtoken != ''">
+                and rewardtoken = #{rewardtoken}
+            </if>
+            <if test="amount != null">
+                and amount = #{amount}
+            </if>
+            <if test="strarttime != null and strarttime != ''">
+                and strarttime = #{strarttime}
+            </if>
+            <if test="duration != null and duration != ''">
+                and duration = #{duration}
+            </if>
+            <if test="endtime != null and endtime != ''">
+                and endtime = #{endtime}
+            </if>
+            <if test="inserttime != null and inserttime != ''">
+                and inserttime = #{inserttime}
+            </if>
+            <if test="pairname != null and pairname != ''">
+                and pairname = #{pairname}
+            </if>
+            <if test="poolid != null and poolid != ''">
+                and poolid = #{poolid}
+            </if>
+            <if test="priceOfStakedToken != null and priceOfStakedToken != ''">
+                and priceOfStakedToken = #{priceOfStakedToken}
+            </if>
+            <if test="version != null and version != ''">
+                and version = #{version}
+            </if>
+            <if test="isdel != null and isdel != ''">
+                and isdel = #{isdel}
+            </if>
+        </where>
+        limit #{pageable.offset}, #{pageable.pageSize}
+    </select>
+
+    <!--Count the total number of rows-->
+    <select id="count" resultType="java.lang.Long">
+        select count(1)
+        from activityinfo
+        <where>
+            <if test="projectid != null">
+                and projectid = #{projectid}
+            </if>
+            <if test="actividyid != null">
+                and actividyid = #{actividyid}
+            </if>
+            <if test="type != null and type != ''">
+                and type = #{type}
+            </if>
+            <if test="pairaddress != null and pairaddress != ''">
+                and pairaddress = #{pairaddress}
+            </if>
+            <if test="rewardtoken != null and rewardtoken != ''">
+                and rewardtoken = #{rewardtoken}
+            </if>
+            <if test="amount != null">
+                and amount = #{amount}
+            </if>
+            <if test="strarttime != null and strarttime != ''">
+                and strarttime = #{strarttime}
+            </if>
+            <if test="duration != null and duration != ''">
+                and duration = #{duration}
+            </if>
+            <if test="endtime != null and endtime != ''">
+                and endtime = #{endtime}
+            </if>
+            <if test="inserttime != null and inserttime != ''">
+                and inserttime = #{inserttime}
+            </if>
+            <if test="pairname != null and pairname != ''">
+                and pairname = #{pairname}
+            </if>
+            <if test="poolid != null and poolid != ''">
+                and poolid = #{poolid}
+            </if>
+            <if test="priceOfStakedToken != null and priceOfStakedToken != ''">
+                and priceOfStakedToken = #{priceOfStakedToken}
+            </if>
+            <if test="version != null and version != ''">
+                and version = #{version}
+            </if>
+                and isdel = #{isdel}
+        </where>
+    </select>
+
+    <!--insert-->
+    <insert id="insert" keyProperty="id" useGeneratedKeys="true">
+        insert into activityinfo(projectid, actividyid, type, pairaddress, rewardtoken, amount, strarttime, duration, endtime, inserttime, pairname, poolid, priceOfStakedToken, version, isdel, flag, dailyamount, sustainabledays, apr, directdivided, indirectdivided, directweight, indirectweight, isleaderboard)
+        values (#{projectid}, #{actividyid}, #{type}, #{pairaddress}, #{rewardtoken}, #{amount}, #{strarttime}, #{duration}, #{endtime}, #{inserttime}, #{pairname}, #{poolid}, #{priceOfStakedToken}, #{version}, #{isdel}, #{flag}, #{dailyamount}, #{sustainabledays}, #{apr}, #{directdivided}, #{indirectdivided}, #{directweight}, #{indirectweight}, #{isleaderboard})
+    </insert>
+
+    <!--Query the activities below the project-->
+    <select id="getActivity" resultMap="ActivityinfoMap">
+        select
+            id, projectid, actividyid, type, pairaddress, rewardtoken, amount, strarttime, duration, endtime, inserttime, pairname, poolid, priceOfStakedToken, version, isdel, flag, dailyamount, sustainabledays, apr, directdivided, indirectdivided, directweight, indirectweight, isleaderboard
+        from activityinfo
+        <where>
+            <if test="projectid != null">
+                and projectid = #{projectid}
+            </if>
+        </where>
+        order by endtime desc
+    </select>
+
+    <select id="getActivityByPoolId" resultMap="ActivityinfoMap">
+        select
+            id, projectid, actividyid, type, pairaddress, rewardtoken, amount, strarttime, duration, endtime, inserttime, pairname, poolid, priceOfStakedToken, version, isdel, flag, dailyamount, sustainabledays, apr, directdivided, indirectdivided, directweight, indirectweight, isleaderboard
+        from activityinfo
+        where projectid = #{projectid} and poolid = #{poolid}
+    </select>
+
+    <select id="getActivityByPidAndAid" resultMap="ActivityinfoMap">
+        select
+            id, projectid, actividyid, type, pairaddress, rewardtoken, amount, strarttime, duration, endtime, inserttime, pairname, poolid, priceOfStakedToken, version, isdel, flag, dailyamount, sustainabledays, apr, directdivided, indirectdivided, directweight, indirectweight, isleaderboard
+        from activityinfo
+        where projectid = #{projectid} and actividyid = #{actividyid} and version = #{version} and flag = #{flag}
+    </select>
+
+    <update id="update">
+        update activityinfo
+        <set>
+            <if test="projectid != null">
+                projectid = #{projectid},
+            </if>
+            <if test="actividyid != null">
+                actividyid = #{actividyid},
+            </if>
+            <if test="type != null and type != ''">
+                type = #{type},
+            </if>
+            <if test="pairaddress != null and pairaddress != ''">
+                pairaddress = #{pairaddress},
+            </if>
+            <if test="rewardtoken != null and rewardtoken != ''">
+                rewardtoken = #{rewardtoken},
+            </if>
+            <if test="amount != null and amount != ''">
+                amount = #{amount},
+            </if>
+            <if test="strarttime != null">
+                strarttime = #{strarttime},
+            </if>
+            <if test="duration != null and duration != ''">
+                duration = #{duration},
+            </if>
+            <if test="endtime != null">
+                endtime = #{endtime},
+            </if>
+            <if test="inserttime != null">
+                inserttime = #{inserttime},
+            </if>
+            <if test="pairname != null and pairname != ''">
+                pairname = #{pairname},
+            </if>
+            <if test="poolid != null">
+                poolid = #{poolid},
+            </if>
+            <if test="priceOfStakedToken != null and priceOfStakedToken != ''">
+                priceOfStakedToken = #{priceOfStakedToken},
+            </if>
+            <if test="version != null and version != ''">
+                version = #{version},
+            </if>
+                isdel = #{isdel},
+            <if test="dailyamount != null and dailyamount != ''">
+                dailyamount = #{dailyamount},
+            </if>
+            <if test="sustainabledays != null and sustainabledays != ''">
+                sustainabledays = #{sustainabledays},
+            </if>
+            <if test="apr != null and apr != ''">
+                apr = #{apr},
+            </if>
+            <if test="directdivided != null and directdivided != ''">
+                directdivided = #{directdivided},
+            </if>
+            <if test="indirectdivided != null and indirectdivided != ''">
+                indirectdivided = #{indirectdivided},
+            </if>
+            <if test="directweight != null and directweight != ''">
+                directweight = #{directweight},
+            </if>
+            <if test="indirectweight != null and indirectweight != ''">
+                indirectweight = #{indirectweight},
+            </if>
+            <if test="isleaderboard != null and isleaderboard != ''">
+                isleaderboard = #{isleaderboard},
+            </if>
+        </set>
+        where id = #{id}
+    </update>
+</mapper>
+
