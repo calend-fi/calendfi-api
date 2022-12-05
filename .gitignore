@@ -3,3 +3,7 @@
 /.idea/
 /target/
 .DS_Store
+/common/target/
+/calendfi-web/target/
+/calendfi-task/target/
+/mybatis-common/target/

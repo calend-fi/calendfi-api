@@ -1,0 +1,23 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+    url: jdbc:mysql://database-1.cs1r4uz5q7lc.us-east-2.rds.amazonaws.com:3306/encentive?useSSL=false&useUnicode=true&characterEncoding=utf-8&useLegacyDatetimeCode=false&serverTimezone=Asia/Shanghai&useSSL=false
+    username: admin
+    password: NIcai123456!
+#coin配置
+config:
+  network: "BscMainnet"
+  web3j-url: "https://bsc-dataseed1.binance.org"
+  contractAddressManager: "0xebEDb0eb798c4cB6a8753Eb8D15bB9E83A01aAeD"
+  contractAddressSwapPool: "0x2BD60F4D5F0796372a1D67d947b7f970D598f9C0"
+  fromAddress: "0xd8DE955085d04Fc7E097C4ed6A7f19A08eE00bEf"
+  api: "https://api.bscscan.com/"
+  key: "77QJ59A4NQRESVSISN6FVZMRJQ581A8A9Z"
+  version: "2.0"
+nft:
+  checkout:
+    tradeUrl: https://openapi-test.alchemypay.org/nft/openapi/query/trade
+    appId: ahzxh0klegv1fzol
+    appSecret: py2bwighth62ajq6
+

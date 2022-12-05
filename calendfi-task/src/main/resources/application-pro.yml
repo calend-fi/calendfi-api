@@ -1,0 +1,25 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+    url: jdbc:mysql://localhost:3307/encentive?useSSL=false&useUnicode=true&characterEncoding=utf-8&useLegacyDatetimeCode=false&serverTimezone=Asia/Shanghai&useSSL=false
+    username: admin
+    password: NIcai123456!
+logging:
+  level:
+    com.ach.timedtask.dao : debug
+#coin配置
+config:
+  network: "rinkeby"
+  web3j-url: "https://rinkeby.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161"
+  contractAddressManager: "0xc7b634f284F526a2accD6737BDf9CB8C19FF4164"
+  contractAddressSwapPool: "0x388Bc6BF3E799279963FBe563C0d14a295D6Cee4"
+  fromAddress: "0xd8DE955085d04Fc7E097C4ed6A7f19A08eE00bEf"
+  api: "https://api-rinkeby.etherscan.io/"
+  key: "4ERM337PVYGSPUKFMFVESYP27UDXX3DGUZ"
+  version: "2.0"
+nft:
+  checkout:
+    tradeUrl: https://openapi-test.alchemypay.org/nft/openapi/query/trade
+    appId: ahzxh0klegv1fzol
+    appSecret: py2bwighth62ajq6
